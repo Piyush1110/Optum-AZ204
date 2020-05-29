@@ -1,0 +1,484 @@
+
+What is On-premises data center?
+What is cloud and why it is required?
+Different types of cloud 
+	- Private 
+	- Public
+	- Hybrid
+cloud Service models
+	- IaaS - Infrastructure as a Service
+	- PaaS - Platform as a Service
+	- SaaS - Software as a Service
+
+Basic Services in cloud 
+	- What is compute services
+		- uses CPU and RAM
+		- Services for deploying apps and data
+		- VM, VMSS, AppServices, Clusters(AKS, SF), Serverless(ACI, Functions)
+	- What is storage 
+		- Disk, Archival Storage, Storage Account, Data Lake Store
+	- What is networking
+		- Virtual Network, Load Balancer, NSG, Firewall, Public IP, Network interfaces
+	- Databases
+		- CosmosDB, SQL Database, MySQL, PostgreSQL
+	- Identity
+		- Active Directory
+	- Integration Services
+		Logic Apps + Integration Account
+	- Messaging Services
+		- Service Bus, Event Hubs, Notification Hub
+		
+Azure 
+	- Subscription
+		- Agreement between the cloud vendor and User
+		- Subscription allows a user to use the cloud services
+		- Types
+			- Free
+				- 1 month free trail (register with CC/DC)
+				- Azure Pass code (Sponsership vouchers)
+				- MCT subscriptions (reccurance)
+			- Pay As You Go
+				- Monthly bill
+			- Enterprise Agreement				
+			- CSP - Partner	
+				- Wipro - 
+					- Web solution 1 - (1VM, 1 DB, 1 LB, 2 SA, 1 Firewall)
+					- Web solution 2 ( 2 SQLDB, 2 webapps, 1 API Gateway, 1 TM, 2 VMs)
+				- Cognizant
+					- Solution 3- (2VMS, 2 SA, 1 SBus, 1DB)
+	- Resource Group
+		- Logical Group for grouping the resources
+		- A RG can be created in SEA, but the resources can be created in EUS, WUS, SI, WI etc
+		- Group based deployment
+		- Group deletion
+		- Templated Based deployment
+		- RBAC policies
+		- Group based billing
+	- ARM model
+		- Azure Resource Manager model
+			- JSON template based deployment
+		- ASM (Azure Service Management model)
+			- Old API Set
+			- No resource group
+			- No RBAC policies
+			- Classic services
+	- Data Center/Region
+		- 58+ datacenter/regions
+		- Data center is again divided into Availability Zones.
+	- Azure Cloud
+		- Azure Public Cloud - We use
+		- Azure China
+		- Azure Germany
+		- Azure US Goverment
+
+Cloud
+	- What is Cloud and Why?
+	- Features of cloud?
+	
+Cloud Models
+	- Private
+	- Public - Azure, AWS, Google
+	- Hybrid
+	
+Cloud Service Models
+	- IaaS - Infrastructure as a Service
+		- Compute, Storage and Networking
+		- VM, VMSS, Disk, Archival storage, VNET
+		- User is responsible to create and manage services
+		- Cloud provides the compute storage and networking services
+	- PaaS - Platform as a Service
+		- Database Platform as as Service - DPaaS
+		- Integration Platform as a Service - IPaaS		
+		- Preconfigured platform is available to user
+		- User is not responsible to create and manage services
+		- Cloud Service Provider will be responsible to create and manage the platform and services
+	- SaaS - Software as a Service
+		- The application and data is also provided the cloud vendor
+		- User need to consume the services
+		
+App Service
+	- A Paas Service
+	- Compute solution
+	- Used to deploy Web Apps, API apps, Mobile Apps 
+	- It is a PaaS platoform that comes with preconfigured environment
+		- .NET Core 
+		- .NET Framewaork
+		- NodeJS
+		- PHP 
+		- Java
+		- Ruby
+		- Python
+	- Deploy as Code or Docker container
+	- It provides windows and Linux environments
+	- When the AppService is provisioned it creates a Sandbox environment for you. (VM)
+	- But the VM (Sandbox environment) access is not given to user
+	
+App Service Plan
+	- Define the capacity and features of sandbox environment(VM)
+		- Size and SKU
+	- Define the features available to the application
+		- No of Backups per day
+		- Traffic Manager support
+		- Custom Domain mapping support
+		- Deployment slots support
+		- Storage and compute capacity (CPU and RAM)
+	- Plans (Pricing Tiers)
+		- Free
+			- No Cost
+			- No SLA
+			- Used for Dev/Test purpose
+			- No Custom domain mapping
+			- No Dedicated instance
+			- No deployment slots
+		- Shared
+			- Shared infrastructure
+			- A small cost incurred
+			- Custom Domain mapping available
+			- For Dev/Test
+			- No SLA
+		- Basic
+			- Dedicated low capacity machine available
+			- Custom domain mapping 
+			- Cost involved
+			- For Dev/Test			
+		- Standard
+			- For Production
+			- Available in S1(100ACU 1.75GB RAM), S2 (200ACU 3.5GB RAM) and S3 plans
+			- Traffic Manager support
+			- 5 Deployment slots available
+			- Daily 10 backups
+			- Dedicated instance available			
+		- Premium
+			- Same features of Standard
+			- 50 backups per day
+			- 20 deployment slots
+			- Available plans - P1, P2, P3, P1V2, P2V2, P3V2
+		- Isolated (App Service Environment)
+			- Custom VNET 
+			
+
+Scaling
+	- Scale Up - Vertical Scaling
+		Increase the capacity of existing instance
+		Change pricing tier from S1 -> S2 or S2->P2
+	- Scale out - Horizontal Scaling
+		Increase the number of instances 
+		Current number instances: 1 (S1) -> Number of instance: 3 (S1)
+	
+Traffic Manager
+	US   -> https://amazonus.azurewebsites.net 100
+	UK   -> https://amazonuk.azurewebsites.net 
+	Asia -> https://amazonasia.azurewebsites.net 
+	
+	URL of Traffic Manager -> https://amazon.com -> US/UK/Asia
+		- Performance 
+		- Weightage
+		- Prioroty
+		
+	Custom domain mapping
+		https://sonu-tm.trafficmanager.net/   -> https://amazon.com
+		
+Container in Web Apps
+	- Docker container
+	- Pack the application and its dependencies in a logical box called docker image
+	- A running instance of an image is called container.
+
+Create/manage resources
+	- Azure Portal -Web browser
+	- Command line 
+		- PowerShell Core
+		- Azure CLI 
+	- JSON template (ARM template)
+	- Client SDK
+	- REST API
+	
+Storage Account
+	- Core Storage services
+	- 4 storage options
+		- Blob Storage (Containers)
+		- File Share (Network fileshare service that can be mapped as network drive in VMS)
+		- Table storage (Key-value semi-structured data) (NoSQL storage
+		- Queue Storage (http based text message service)
+	- Blob storage 
+		- USed for storing unstructured blob data such as images, audio, video, archives 
+		- Every blob has a unique Url that helps us to access the file
+			https://sonustorage.blob.core.windows.net/images/mypics/pic1.jpg
+		- Every blob need to be placed inside a container
+		- Container is like a folder but not a folder.
+		- Muutiple container can be created in blob storage, and each container can store multiple blobs
+		- We can control access to the blobs in container using Container access control:
+			- Blob Access control - (Anonymous) - read the blobs using the Url
+			- Container Access control - (Anonymous) - read access to individual blobs also it allows to list blobs
+			- Private access control - (Not anonymous- credentials required)
+
+	- One storage account can store max 500TB data.
+	- Types of storage accounts (Kind)
+		- Storage V1 (General Purpose v1)
+			- All 4 types of service available : Blob, File, Table , Queue
+			- Standard (Magnetic HDD) and Premium storage (SSD)
+			- No access tiers : Hot and Cool
+		- Blob Storage 
+			- Only blob service available
+			- Standard storage
+			- Access tier: Hot and Cool
+		- Storage V2 ( General purpose V2)
+			- All 4 services
+			- Hot and cool
+			- Standard and Premium
+		
+	- Access Keys
+		- Admin Keys
+	- SAS Tokeb
+		- Shared Access Signature
+		- Granular permission on services
+			- Service Type: Blob, Table
+			- Permission: Read, List
+			- Expiry: From date to date
+			- IP Filter: Accessible only from an IP range
+			
+		
+NoSQL data
+	- Not Only SQL
+	- NoSQL formats
+		- Document  - MongoDB, DocumentDB, DynamoDB
+		- Key-value - Redis Database, Azure Storage Table
+		- Columnar  - Casandra
+		- Graph     - Gremlin, Neo4j
+	- CosmosDB
+		- multi-model database.
+		- Support for MongoDB, DocumentDB(SQL API), Table API, Casandra, Gremlin
+		- With platform features: Security, Disaster Recovery, Scaling, Geo-replication, Backup
+		- Backed by Premium SSD 
+		- Most of the AI solutions, IoT solutions, Gaming apps, ML apps use cosmos db as storage.
+		- Guranteed throughput and low latency.
+		- SLA - High Availability, Consistency, throughput and latency.
+		- Geo-replication 
+			- Turn-key replication
+		- Multi-region writes
+			- Last write wins.
+			- Custom policies
+		- Well-defined consistency models
+			- Eventual
+			- Consistent Prefix
+			- Session
+			- Bounded Staleness
+			- Strong
+Azure Functions
+	- Functions are serverless computing services.
+	- No need to pre-provision the compute resources while creating services.
+	- resources are allocated athe time of request execution. 
+	- When more number of reqeusts are received the azure platfrm automatically scale the service.
+	- Pricing is based on the number of requests * duration * per second cost
+	- Two hosting available
+		- Consumption model
+			- First request execution always delayed
+			- 5 minutes is the max execution duration. (optionally configure up to 10 mts)
+		- AppService model
+			- Uses an existing app service plan.
+			- No additional cost for running functions
+			- No time restriction
+	- Function is a peice of code which is written in 
+		- C# - Primary
+		- Python
+		- JavaScript(Node) - Secondary
+		- Java
+		- PowerShell
+		- Bash 
+	- Not used for web application development, used for doing atomic tasks
+		- Send alert notifications
+		- Convert image to other formation
+		- encoding of documents
+		- Mail sending 
+	- Triggers and Bindings
+		- Trigger is used to start the functions.
+		- This will be some kind of events
+			- New function arrived in queue
+			- A new document added in cosmosdb collection.
+			- A new blob is created in container
+			- A new http request is received
+			- Timer trigger - use CRON expression
+		- Bindings 
+			- Input binding - From where the fucntion can read data
+				- Trigger is an example of input binding
+			- Output binding 
+				- Function can send output to services and it is called output bindings
+	- How to develop
+		- Azure Portal
+		- Locally develop
+			- Functions CLI with VS Code
+			- Visual Studio 2019/2017 + Functions SDK
+				
+Logic Apps
+	- Serverless, PaaS service, Workflow applications, Trigger based execution 
+	- Logic Apps
+		- Fully managed PaaS service for Creating workflows
+		- No coding required, A graphical UI used to create workflows
+		- Logic Apps uses connectors to connect with thousands of SaaS apps and Azure Services
+		- Connectors are similar to bindings in Functions
+		- Connectors are providing Triggers and Actions
+
+
+Virtual Machines
+	- What is VM?
+		- VMs are compute services that runs on a virtualized platform.
+		- VM virtualization platforms can be VMware, Hyper-V or Virtual Box in on-prem
+		- Azure uses Hyper-V to create the VMs
+		- VMs are IaaS services 
+			- Install OS and configure, Ensure HA, Backup, DR solutions, Security
+	- Why to use/When to use?
+		- For all kinds of workload Azure is providing PaaS services.
+		- Full control over envirinment/ Customize the envirinment
+		- Run legacy apps
+		- Use Public Static IPs of VM for network configurations
+	- What workload can run in VM?
+		- Windows VM
+		- Linux VM
+		- Get VM images from marketplace
+			- Microsoft images 
+			- Community Images
+				- Canonical
+			- ISV images 
+			- Other publishers	
+		- Publisher-Offer-SKU-Version
+			- Microsoft-WindowsServer-WindowsServer2019Datacenter-202003.2333
+			- Canonical-UbuntuServer-Ubuntu-18.04					
+	- Requirements for VM
+		- Virtual Network
+			- Subnets
+		- NIC- IPs will be assigned to VMs using NIC
+		- Public IP (optional)
+		- NSG- Network Security Group 
+			- Defines a set of inbound and outbound rules.
+		- Disk storage (OS Disk/Data Disk)
+			- Managed Disk
+				- Current and reccommended 
+				- Azure will take care of the storage and HA of Disk.
+			- Unmanaged Disk
+				- We need to create storage account to store disk
+				- In Blob storage we store disks as Page Blobs
+		- High Availability (Optional)
+			- Availability Set
+			- Availability Zone
+			- Disaster Recovery (Geo-replication) using ASR
+		- VM Size
+			- General Purpose (Commonly)
+				- Standard DS2_V3 - 2 CPU & 8GB RAM
+				- Standard DS3_V# - 4 CPU & 16GB RAM
+			- GPU enabled VM (ML apps)
+				- G-Series 
+			- Compute optimized
+				- M-Series
+			- Memory Optimized 
+			- Storage Optimized
+ACI - Azure Container Instances
+	- Serverless service for running docker containers
+	- What is docker container?
+		- Docker will will pack the application into a deployable box
+		- The packed box is called image
+		- From same image we can start multiple containers 
+		- Container is the running instance of an application image.
+		- For containerizing apps we need to install Docker CLI in your machine
+			- Uses a Dockerfile to build the image
+			- A Dockerfile is a textfile that contains the instruction to build the image.
+	- What is ACR?
+		- Docker Hub - Public repository of images
+		- ACR - Azure Container Registry
+			- Private 
+			- Credentials required for Push and Pull 
+	- how to build image
+		- 
+	- How to deploy container to ACI from ACR?
+		1) az login
+
+		2) az acr login --name <acrname>
+
+		3) Create image 
+			docker build -t <imagename> .
+
+		4) Renamed the image
+			docker tag <myimagename> <acrloginServer>/<imagename>
+			
+		5) Push image to ACR
+			docker push <acrloginServer>/<imagename>
+			
+		6) Complete steps 3+ 4+ 5 using a single command
+
+		az acr build --image <acrloginServer>/<imagename>  --registry <acrname> <path>
+
+		az acr build --image sonuregistry.azurecr.io/dummyapp:latest --registry sonuregistry .
+			
+
+				
+				
+				
+				
+				
+				
+			
+			
+			
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
