@@ -407,11 +407,29 @@ ACI - Azure Container Instances
 
 		az acr build --image sonuregistry.azurecr.io/dummyapp:latest --registry sonuregistry .
 			
-
-				
-				
-				
-				
+API Gateway Service
+	- Need for gateway
+		- Client apps may need to store/remember multiple backend urls
+		- Content type mismatch - JSON to XML /XML to JSON
+		- Authentication cannot be added post deployment
+		- Caching cannot implemented post deployment
+		- Modification of response or request header is not possible
+		- Replace text in response using find and replace
+		- Control the number requests per minute (throttling)
+	- AZure APIM
+		- Fully managed PaaS service for Gateway purpose
+		- 3 components
+			- Publisher Portal (Azure Portal)
+				- Used by API publishers
+				- Configure the API backend in Gateway
+				- Publisher Portal features are now integrated in Azure Portal
+				- Products, APIS, Operations
+				- Configure the Policies for APIs
+			- Developer Portal
+			- API Gateway
+		- Policies
+			- A set of rules that is configured by Publisher in gateway
+			- Applied on Operation level, API level or Product level
 				
 				
 			
