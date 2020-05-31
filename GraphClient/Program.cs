@@ -26,8 +26,6 @@ public class Program
         List<string> scopes = new List<string> 
         { 
             "user.read",
-            "api://1bb88544-58ed-4251-80d7-a520e0d7753c"
-            //"1bb88544-58ed-4251-80d7-a520e0d7753c"
         };
 
         // 1: Authenticate user
@@ -54,8 +52,7 @@ public class Program
         Console.WriteLine(token);
 
         ////3: Get user info from Microsoft Graph
-        //string endpoint = "https://graph.microsoft.com/v1.0/me";
-        string endpoint = "https://localhost:44335/weatherforecast";
+        string endpoint = "https://graph.microsoft.com/v1.0/me";       
         var httpClient = new HttpClient();
         var authHeader = new AuthenticationHeaderValue("Bearer", token);
 
@@ -64,6 +61,7 @@ public class Program
         var response = httpClient.GetAsync(endpoint).GetAwaiter().GetResult();
         if (response.IsSuccessStatusCode)
         {
+            Console.WriteLine($"\n\n");
             Console.WriteLine(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
         }
         else
