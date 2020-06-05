@@ -1,0 +1,138 @@
+
+
+1) Serverless deployment of containers
+	ACI - Azure Container Instances
+	Run a single container
+2) Server based container deployment
+	Azure App Service Web App
+	Run a single container
+3) Cluster based deployment
+	AKS - Azure Kubernetes Service - Container cluster
+	Service Fabric - Microservices cluster - It  support containers also (primarily it uses code)
+	
+	
+Docker Registry
+	- Storage location for docker images
+	- Can be public or private
+		- Public registry is accessible to all as anonymous
+			- eg: Docker Hub
+			- eg image : sonusathyadas/dockerwebapp:latest
+		- Private registry is protected with keys/passwords
+			- Azure Container Registry (ACR)
+			- Elastic Container Registry (ECR)
+			
+AKS 
+	- Cluster based container deployment
+	- A cluster is a group of interconnected VMs.
+	- A master Node and one or more worker Node in a cluster. 
+	- Master Node is used to control the cluster, run all cluster management services runs in master.
+	- Worker nodes are used for deploying/running containers.
+	- Master node does not run applications.
+	- Master responsibilities:
+		- Manage the cluster
+		- Monitoring
+		- Scheduling the deployment
+		- Fault analysis - Create a new node/container when one fails
+		- Reporting
+		- Interacting with user( User executes commands through master) 
+	- Early time Azure used ACS cluster to deploy containers.
+	- AKS is a managed cluster where user need to pay only for worker nodes not for master nodes.
+	- HA, Security for Master is the responsibility of Azure.
+	- Kubernetes (K8S) is an cluster orchestrator service that controls the activities in a cluster.
+		- Other orchestrators for containers are Docker Swarm, DC OS (not used by Azure)
+	- From client machines user can give instruction to master using kubectl.exe (kubernetes client CLI)
+	- The instruction to master is give in YAML format. (manifest file)
+	- Master receives the instruction for deployment and creates containers in worker nodes.
+	
+Database storage
+	- Relational Databases
+		- Data is structured, schema will be defined first
+		- Define the table, columns, data types and constraints
+		- All records in a table will have same set of attributes
+		- Relational DB services in Azure
+			- Azure Database for PostgreSQL - PaaS
+			- Azure Database for MySQL - PaaS
+			- Azure Database for MariaDB - PaaS
+			- SQL database - PaaS - Logical Server (TDE endpoint)
+			- SQL Server Managed Instance - Hybrid PaaS
+			- Azure SQL Server VM - IaaS
+	- NoSQL data storage
+		- No fixed schema for the data (semi-structured or unstructured)
+		- eg: e-commerce app data, social media app data 
+		- NoSQL data storages
+			- Document storage - json/bson documents (MongoDB, DocumentDB)
+			- Key-Value pair - Redis database, Azure Storage Table 
+			- Column family - Cassandra 
+			- Graph - Gremlin, Neo4j
+		- Azure for NoSQL databases - CosmosDB
+		- Multi-model, distributed, scalable database service 
+		- Multi-model database	
+			- MongoDB
+			- Core SQL (DocumentDB)
+			- Azure Table 
+			- Cassandra
+			- Gremlin			
+		- Turn-key distribution
+			- Replicate data into multiple regions
+				- It supports Multi-Region Writes
+			- Partition the data using a partition key
+		- 5 File well-defined Consistency  models supported
+			- Eventual (Least)
+			- Consitent Prefix
+			- Session (Default)
+			- Bounded Staleness
+			- Strong(High)
+		- It use SSD as the backend storage.
+			- It provides high IOPS
+			- Guaranteed read/write performance- Write(15ms), Read(10ms)
+			- Best suited for IoT apps, ML/AI apps, Gaming apps etc.
+		- SLA for 4 parameters
+			- High Availability
+			- Latency
+			- Consistency
+			- Throughput
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

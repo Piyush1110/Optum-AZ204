@@ -431,13 +431,170 @@ API Gateway Service
 			- A set of rules that is configured by Publisher in gateway
 			- Applied on Operation level, API level or Product level
 				
-				
-			
-			
-			
-			
-			
+Events and Message services
+	- Communication patterns
+		- Http Request/Response
+			- It is nearly real time
+			- The sender and receiver must be online
+			- One-to-One communication
+			- Response is mandatory, it is indicating the end of communication.
+			- It is synchronous by default
+		- Event Driven 
+			- One app fire an event and one or more receivers can receive the event data.
+			- One to many communication
+			- Publisher-Subscriber pattern
+			- Response is not mandatory
+			- Asynchronous by default
+			- Real time communication
+			- Sender and receiver must be online
+		- Message driven pattern		
+			- It is not real time
+			- One to many pattern supported
+			- No response required
+			- Asynchronous
+			- Sender and receiver must not be online at the time of communication
+	- Event Driven Services in Azure
+		- Event Grid
+			- It is an fully managed event ingestion service on azure
+			- Created and managed by Azure
+			- It is a built in service integrated with most of the Azure services by default.
+			- Multiple subscriber apps can consume the event.
+			- Terminologies:
+				- Event - What happened
+				- Event Publisher - Who generated the event/where the event generated
+				- Topic - The channel used by publisher to publish event to EventGrid
+				- Subscriber - The consumer of the event, there can be zero or more consumers
+				- Subscription - the endpoint/channel through which the subscriber receives events
+		- Event Hub
+			- It is also Event ingestion system
+			- Used for Big Data processing
+		
+	- Message Driven Services
+		- We use a message broker service as an intermediate component.
+		- Azure supports two messaging services:
+			- Service Bus Queue
+				- Costlier than storage queue
+				- Used in Enterprise apps
+				- Max message size is 256 Kb
+				- Max TTL is 14 days
+				- Duplicate detection supported
+				- Dead letter queue support 
+				- Support pricing tiers
+				- Secured- Message is sent as encrypted and SB cannot read the message.
+				- It follows FIFO order
+				- Uses AMQP protocol(Advanced Message Queueing Protocol) 
+			- Storage Account queue
+				- Created along with Storage account
+				- Storage queue uses HTTP as communication protocol
+					= https://<storageaccname>.queue.windows.net/<queueName>
+				- A message size is maximum 64Kb
+				- the TTL (Time to Live) is max 7 days.
+				- No Guarantee for FIFO
+				- No Duplicate detection 
+				- No message corelation
+				- Message is sent as plain text
+				- Cheap and more storage
 
+Improve the app performance
+	Azure Cache For Redis
+		- Redis Database
+			- It is a NoSQL database.
+			- Key-Value pair data storage.
+				- "Name"="Sonu"
+				- "Address:HouseNo" = "C-205, Marina"
+				- "Address:Street" = "Casa Rio",
+				- "Address:City" = "Mumbai"
+			- Open source database
+			- Mostly used for caching storage not as a permenant database.
+	Content Delivery Network (CDN)
+		- Serve static content from nearby edge server to customers
+		- Accessing data from the origin is giving high latency.
+		- CDN helps to cache the static files in the edge server near to the customer.
+		
+Monitoring tools
+	- Azure Monitor
+		- Collects data about application
+			- Metric
+				- Numerical data about the app usage
+					- Average CPU utilization
+					- Average Memory utilization
+					- Disk Usage
+					- Egress and Ingress
+					- No of failed requets
+					- Average response time 
+				- Used for generating alert conditions and scaling
+				- Can be visualized in chart/graph format using apps like PowerBI or App Insights or Metric Explorer
+			- Log
+				- Unstructured text data collected
+					- IIS Logs 
+					- Windows Event Logs
+					- Diagnostic logs
+					- Boot logs
+					- Activity Log
+				- Query the data using Log Analytics 
+		- Tools for monitoring and debugging
+			- Alerts 
+			- Log Analytics 
+			- Visualization 
+			- Application Insights
+		
+		- Alerts
+			- Alert rules
+				- Alert condition
+					eg: CPU Percentage > 70%
+					eg: operation status =='Failed'
+			- Action groups
+				- A set of action need to be executed when the condition met
+				- What to do when condition is met 
+				- Action group can contain multiple actions:
+					eg: Send Mail/SMS/Push to admin
+					eg: Execute a Logic App or Function
+					eg: Send a notification to webhook
+					eg: Invoke Azure automation runbook (PowerShell script)
+		- Application Insights
+			- Collects telemetry about apps such as Availability, latency, failed and success requests 
+			- Can create availability test
+			- Application map to detect the app dependencies
+			- Live metrics to see the live usage data
+			
+Authentication and Authorization
+	- Azure Provided security
+		- Default encryption
+		- Virtual network security
+	- User provided security
+		- Forms based authentication (User databases)
+		- OAuth authentication
+			- Use third party identity providers like Facebook, google, Microsoft, Twitter etc
+	- AAD Authentication	
+		1) Register client Application in AAD
+		2) Protected API(resource) must be registered in AAD
+		3) Client App makes login request to AAD
+		4) AAD verifies the username and pwd and send access token to client app
+		5) Client App can now access protected resource using the token. It sends the token with request using Authorization header
+		6) Resource verifies the token and allow access
+		
+			
+sonusathyadas@gmail.com
+sonusathyadas@hotmail.com
+8943089425
+
+
+
+
+
+
+			
+			
+		
+		
+		
+		
+		
+		
+		
+			
+			
+			
 
 
 

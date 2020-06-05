@@ -24,10 +24,11 @@ namespace AzureRedisCache
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             services.AddStackExchangeRedisCache(options =>
             {
-                options.Configuration = "sonu-redis.redis.cache.windows.net:6380,password=LketGZcY13KBNwPMxZ8cVtDnR6gAjUsHr5tMwiJ5TpU=,ssl=True,abortConnect=False";
-                options.InstanceName = "redis";
+                options.Configuration = "sonu-redis.redis.cache.windows.net:6380,password=H5pzaN1I9YQ6Lkn6oejDKwwSg9YjcmQLUiQvRjvcBhc=,ssl=True,abortConnect=False";
+                options.InstanceName = "xyz";
             });
         }
 

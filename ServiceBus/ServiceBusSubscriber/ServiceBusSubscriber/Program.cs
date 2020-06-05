@@ -11,7 +11,7 @@ namespace ServiceBusSubscriber
     class Program
     {
         private const string queueName = "items";
-        private const string connectionString = "Endpoint=sb://sonusb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Mlg+FsZrpSpLhuzQ8dcdhzkOJzIOFQCxyCbcF2LeFLY=";
+        private const string connectionString = "Endpoint=sb://sonusb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=PxQ/v2X00wGNeD6lb3IniMvYR6t+ZgnNusfjyf9rI0o=";
         private static IQueueClient queueClient;
 
         static async Task Main(string[] args)

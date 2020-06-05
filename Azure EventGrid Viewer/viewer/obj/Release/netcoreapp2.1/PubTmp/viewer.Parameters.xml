@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="sonu-eventviewer" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\github\\Optum-AZ204\\Azure\ EventGrid\ Viewer\\viewer\\obj\\Release\\netcoreapp2\.1\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

@@ -23,18 +23,18 @@ namespace AzureRedisCache.Controllers
 
         public IActionResult Index()
         {
-            if(string.IsNullOrEmpty( cache.GetString("name")))
+            if(string.IsNullOrEmpty( cache.GetString("user")))
             {
-                cache.SetString("name", "Sonu");
-                ViewBag.Message = "Data stored in Cache, Key=name, value=Sonu";
+                cache.SetString("user", "Sonu");
+                ViewBag.Message = "Data stored in Cache, Key=user, value=Sonu";
             }
-            ViewBag.Message = "Data stored in Cache, Key=name, value=Sonu . Goto Privacy page to view the cached value";
+            ViewBag.Message = "Data stored in Cache, Key=user, value=Sonu . Goto Privacy page to view the cached value";
             return View();
         }
 
         public IActionResult Privacy()
         {
-            ViewBag.Name = cache.GetString("name");
+            ViewBag.Name = cache.GetString("user");
             return View();
         }
 

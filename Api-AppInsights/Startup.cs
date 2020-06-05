@@ -15,7 +15,7 @@ namespace SimpleApi
 {
     public class Startup
     {
-        private const string INSTRUMENTATION_KEY = "d883cbf4-f6cc-4a1c-99a5-ec3740db1144";
+        private const string INSTRUMENTATION_KEY = "30c4b95e-9010-446c-99fa-413817f5a6eb";
 
         public Startup(IConfiguration configuration)
         {

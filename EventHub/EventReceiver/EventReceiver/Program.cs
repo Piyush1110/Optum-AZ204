@@ -11,8 +11,8 @@ namespace EventReceiver
     class Program
     {
 
-        private const string connectionString = "Endpoint=sb://sonu-eventhub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=MUn7Zo8jVbTj3+s9JFq1NsuDmlDgAfN0BgSxThhoGA8=";
-        private const string eventHubName = "datahub";
+        private const string connectionString = "Endpoint=sb://sonu-eventhub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=laLOGU3eoDhzBRqGo3J3TLJhnfMaV0ZIULtAyLy+WoY=";
+        private const string eventHubName = "myeventhub";
         private const string blobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=sonustorageaccount;AccountKey=pYRwypXNTAm+YW6k1lr/56f5hI62I9/leoLKKAhXQzkhERakZF0OQIJQOK5coUiqg05v4TdhjJLXkZiWugLTmQ==;EndpointSuffix=core.windows.net";
         private const string blobContainerName = "files";
 

@@ -9,8 +9,8 @@ namespace EventSender
 {
     class Program
     {
-        private const string connectionString = "Endpoint=sb://sonu-eventhub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=MUn7Zo8jVbTj3+s9JFq1NsuDmlDgAfN0BgSxThhoGA8=";
-        private const string eventHubName = "datahub";
+        private const string connectionString = "Endpoint=sb://sonu-eventhub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=laLOGU3eoDhzBRqGo3J3TLJhnfMaV0ZIULtAyLy+WoY=";
+        private const string eventHubName = "myeventhub";
 
         async static Task Main(string[] args)
         {

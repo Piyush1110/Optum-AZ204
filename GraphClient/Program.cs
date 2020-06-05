@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 public class Program
 {
-    private const string _clientId = "ffee3152-84c0-4246-97ac-2970d031bbeb";
+    private const string _clientId = "f310906a-de01-40bd-9883-b5f0fc604f17";
     private const string _tenantId = "fc73ed10-905f-4b66-85d6-ae10c14623d7";
 
     public static async Task Main(string[] args)
@@ -26,35 +26,36 @@ public class Program
         List<string> scopes = new List<string> 
         { 
             "user.read",
+            "Mail.Read"
         };
 
-        // 1: Authenticate user
-        DeviceCodeProvider provider = new DeviceCodeProvider(app, scopes);
+        //// 1: Authenticate user
+        //DeviceCodeProvider provider = new DeviceCodeProvider(app, scopes);
 
-        GraphServiceClient client = new GraphServiceClient(provider);
+        //GraphServiceClient client = new GraphServiceClient(provider);
         
-        User myProfile = await client.Me
-            .Request()
-            .GetAsync();
+        //User myProfile = await client.Me
+        //    .Request()
+        //    .GetAsync();
 
-        Console.WriteLine($"Name:\t{myProfile.DisplayName}");
-        Console.WriteLine($"AAD Id:\t{myProfile.Id}");
+        //Console.WriteLine($"Name:\t{myProfile.DisplayName}");
+        //Console.WriteLine($"AAD Id:\t{myProfile.Id}");
 
 
-        // 2: Get access token
-        var acc = app.GetAccountsAsync().GetAwaiter().GetResult().First();        
+        //// 2: Get access token
+        //var acc = app.GetAccountsAsync().GetAwaiter().GetResult().First();        
         
-        AuthenticationResult result = await app
-            .AcquireTokenSilent(scopes, acc)
-            .ExecuteAsync();
+        //AuthenticationResult result = await app
+        //    .AcquireTokenSilent(scopes, acc)
+        //    .ExecuteAsync();
 
-        string token = result.AccessToken;
-        Console.WriteLine(token);
+        //string token = result.AccessToken;
+        //Console.WriteLine(token);
 
         ////3: Get user info from Microsoft Graph
         string endpoint = "https://graph.microsoft.com/v1.0/me";       
         var httpClient = new HttpClient();
-        var authHeader = new AuthenticationHeaderValue("Bearer", token);
+        var authHeader = new AuthenticationHeaderValue("Bearer", "");
 
         httpClient.DefaultRequestHeaders.Authorization = authHeader;
 
@@ -66,7 +67,8 @@ public class Program
         }
         else
         {
-            Console.WriteLine("Error");
+
+            Console.WriteLine("Error", response.StatusCode.ToString());
         }
 
     }
