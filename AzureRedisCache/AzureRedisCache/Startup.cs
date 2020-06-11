@@ -27,7 +27,7 @@ namespace AzureRedisCache
 
             services.AddStackExchangeRedisCache(options =>
             {
-                options.Configuration = "sonu-redis.redis.cache.windows.net:6380,password=H5pzaN1I9YQ6Lkn6oejDKwwSg9YjcmQLUiQvRjvcBhc=,ssl=True,abortConnect=False";
+                options.Configuration = "sonucache.redis.cache.windows.net:6380,password=U1qQFTvIUiRns8KwqPgYh3JX4INLewPJjOWZya4t7cc=,ssl=True,abortConnect=False";
                 options.InstanceName = "xyz";
             });
         }

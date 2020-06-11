@@ -1,0 +1,61 @@
+
+Dockerfile
+
+FROM <baseimage>:<tag>
+eg: FROM nginx:latest
+
+WORKDIR <path>
+eg: WORKDIR /usr/share/nginx/html
+
+COPY src dest
+eg: COPY ./ /usr/share/nginx/html
+
+EXPOSE port
+eg: EXPOSE 80
+
+RUN <cmd args>
+Execute commands while building image
+eg: RUN dotnet restore
+eg: RUN npm install
+
+LABEL Key=Value
+eg: LABEL author=Sonu
+
+ENV Key=Value
+eg: ENV CONNECTION_STRING="Server=195.67.45.33; Database=MyDb; Username=sa; Password=123"
+
+CMD <cmd args>
+Execute commands when run the application
+eg: CMD ["md", "demo"]
+
+ENTRYPOINT <cmd args>
+Execute an entrypoint command for application
+eg: ENTRYPOINT [ "dotnet", "MyApp.dll"]
+
+---------------
+1) Build the image - docker build -t imagename .
+2) Logged into ACR - az acr login 
+3) Tag image with ACR prefix - docker tag oldname newname
+4) Push image to ACR - docker push newname
+
+
+1) Log in to ACR
+2) ACR build process ( docker build + docker tag + docker push)
+	az acr build --image imagename --registry registryname apppath
+	
+	az acr build --image  sonuacr.azurecr.io/demoapp:latest --registry sonuacr ./
+	
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+

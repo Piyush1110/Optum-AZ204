@@ -1,0 +1,397 @@
+
+On-Premise
+	- Private datacenter setup in the organization environment.
+	- It will contain servers(DB servers, web servers, identity servers), network resources
+	- Complete control and responsibility is on IT administrators
+Cloud 
+	- Owned and operated by the cloud vendors like Microsoft, Amazon, Google, Pivotal
+	- User need not to focus on infra setup, he can directly use the preconfigured infrastructure.
+	- Cloud vendors have datacenters in multiple regions. (US, Asia, UK etc)
+	- Azure Public is the set of datacenters used by us.
+	- All the datacenters are interconnected.
+	- Private cloud - Used by organizations and operated by them.
+	- Public cloud - Used by multiple organizations and users.
+	- Hybrid cloud - Combination of Private cloud and Public cloud.
+	
+Azure 
+	- Datacenter - 58+ datacenters across multiple regions
+		- South India (Chennai)
+		- Central India(Pune)
+		- West India (Mumbai)
+		- East US 
+		- West US
+		- East US2
+	- Regions
+		- US regions ( All US datacenters comes under US region)
+	- Azure Resource Manager
+		- New deployment model used in Azure
+		- It uses a new API for creating and managing Azure resources.
+	- Resource
+		- Any service instance we create in Azure is called resource
+		- eg: VM instance, Database instance
+		- WebServer1 is an instance of VM type service.
+		- EmployeeDB is an example of DB service type instance.
+	- Resource Groups
+		- A logical group of resources
+		- Group will have a name and location
+		- Resource Group location and resource location can be different.
+	- Ways to create and manage resources
+		- Azure Web Portal (Used by beginers)
+		- Commands (used by IT administrators)
+			- Azure Cross paltform command - Azure CLI
+			- PowerShell Commands
+		- ARM template (used by administrators for automation)
+			- JSON file.
+		- Language SDK (used by developer)
+			- C#, Java, NodeJS, PHP, Python etc
+		- REST API
+			- Used by all users indirectly.
+	- Cloud Service models
+		- IaaS - Infrastructure as a Service
+			- Cloud vendor provides the core infrastructure services such as Compute, Storage and Network.
+			- User is responsibile to create and manage the VMs and other services.
+			- User will get more control over the platform but difficult to maintain. 
+		- PaaS - Platform as a Service
+			- Available ready to use services.
+			- No create, manage and update responsibilities 
+			- Developers can directly use the preconfigured platform.
+			- IPaaS - Integration platform as a Service (Logic Apps, Queue)
+			- DPaaS - Database Platform as a Service
+			- AIPaaS - (Cognitive services,Chat bots, Azure Bot Service, ML Studio, Data Lake store, DSVM, CosmosDB)
+		- SaaS - Software as a Service
+			- Software is also provided by the cloud vendor.
+			- eg: Office 365.
+			- End users will directly consume the application and upload their data.
+	- Subscription
+		- It is an agreement between you and the cloud vendor.
+		- Free, Pay As You Go, Enterprise Agreement, 
+	- Identity
+		- When you create a subscription you will get an AD
+		- You can add more users and groups in the AD.
+		- It can be used for registering apps and devices also
+		- User (Human being) - User Principal (login using username and password)
+		- Apps (software or azure service) - Service Principal (authenticate using clientId/appId and secret)
+
+App Service
+	- PaaS service for deploying web apps, mobile backend and API services.
+	- It is a sandboxed environment.1
+		- A VM with a webserver will be created for you and you can install web apps inside it.
+		- But the VM access is not given to user.
+	- App Service Plan
+		- VM created in background 
+		- It is the sandboxed environment
+		- User dont have access to the VM
+		- Pricing plans:
+			- Free
+				- No cost involved
+				- Shared infrastructure
+				- Used only for Dev/Test
+				- No Custom domain mapping
+				- No SLA
+			- Shared
+				- Small amount to pay
+				- All features of Free 
+				- Shared Infrastructure
+				- Custom domain mapping available
+				- No SLA 
+				- Dev/Test
+			- Basic
+				- Dedicated instance
+				- All features of Shared
+				- No SLA
+				- Dev/Test
+				- Manual scaling
+			- Standard
+				- Production deployment
+				- S1, S2, S3 plans
+				- 5 deployment slots
+				- Auto scaling + Manual scaling
+				- 10 times daily backup 
+				- Traffic Manager support
+			- Premium
+				- All features of Standard
+				- 20 deployment slots
+				- 50 times backup
+				- P1, P2, P3 old machines
+				- P1V2, P2V2, P3V3 new machines
+				- Traffic Manager support
+			- Isolated (ASE)		
+				- All features of Premium
+				- Isolated virtual network support
+		- Deployment slots
+			- Additional deployment location for same web app
+			- 
+Azure Storage
+	- Storage Account
+	- Azure Disk (IaaS VM)
+	- Azure Data Lake Store
+	- Vault service
+		
+	Storage Account
+		- Core storage service
+		- 4 types of storage options
+			- Blob (container)
+				- Unstructured blob data (video, audio, image, text, zip, documents etc)
+				- Containers are used for storing the blob files.
+				- Container is just like a folder but not a folder.
+				- Container is mandatory to store any files and folders
+				- Set access permissions for containers : Blob, Container, Private 
+				- Files can be accessed over http url
+					https://<storageaccountname>.blob.core.windows.net/<container>/<blobfilename>
+					https://sonustorage.blob.core.windows.net/images/myphoto.jpg
+					https://sonustorage.blob.core.windows.net/videos/movie.mp4
+					https://sonustorage.blob.core.windows.net/mydocs/report.xlx
+			- File Share
+				- Also store blob type files
+				- File share can be mapped as a network drive in VMs or desktops
+				- url: https://<storageaccountname>.file.core.windows.net
+				- SMB 3.0 protocol
+			- Storage Queue
+				- Used for application integration
+				- A sender application can send message to the queue and a receiver app can receive message from queue.
+			- Table
+				- Semi-structured NoSQL type of data.
+				- Key-value pair of data
+				- Each record in the table is called Entity
+			
+		- Creation
+			- Resource Group, Subscription, name, location
+			- Performance: Standard (HDD) and Premium (SSD)
+			- Access Tier: Hot or Cool
+			- Account type :
+				- Storage (General Purpose V1)
+					- 4 types storage options
+					- Performance: Standard and Premium
+					- No Access Tier: Hot and Cool
+				- Blob Storage
+					- Only Blob service
+					- Only Standard
+					- Access Tier: Hot and Cool
+				- Storage V2 (General Purpose V2) -New
+					- Performance: Standard and Premium
+					- Acess Tier: Hot and Cool
+					- Zone redundant replication
+		- Redundancy
+			- LRS - Locally Redundant Storage
+			- ZRS - Zone Redundant Storage
+			- GRS - Geo-Redundant Storage
+			- RA-GRS - Read Access Geo-redundant storage
+			- GZRS - Geo-Zone redundant 
+			- RA-GZRS - Read Access Geo-zone redundant storage
+			
+CosmosDB
+	- NoSQL Database service
+	- Data storges 
+		- Unstructured data
+			- Blob storage
+		- Semi-structured
+			- Azure Storage Table
+			- Azure CosmosDB
+		- Structured data
+			- Relational DB (SQL Server, MySQL, PostgreSQL)
+	- NoSQL Data (semi-structured)
+		- Document storage
+			- MongoDB
+			- DocumentDB
+		- Key-value storage
+			- Redis database
+			- Azure Storage Table
+		- Column family
+			- Cassandra 
+		- Graph storage
+			- Gremlin
+			- Neo4j 
+		
+	- CosmosDB is a multi-model database
+		- MongoDB
+		- Azure Table
+		- Cassandra
+		- Gremlin
+		- CoreSQL (DocumentDB)
+	- SLA
+		- High Availability
+		- Throughput
+		- Latency
+		- Consistency
+		
+Virtual Machines
+	- IaaS service
+	- Cloud vendor (Microsoft) provides only infrastructure services such as Compute, Storage and Network.
+	- An IT admin is responsible to create and configure the VM.
+	- Two VM types:
+		- Windows VM
+		- Linux VM
+	- Customized environment, provide full control over the environment, run legacy apps
+	- VM Creation
+		- Virtual Network with Subnets
+			- NSG - Open ports for exeternal connection
+			- Public IP
+			- Network Interface			
+		- Storage Disk: Managed or Unmanaged
+			- OS Disk
+			- Data Disk
+		- OS Type: Linux OS / Windows Server
+		- VM Size:
+			- No of CPU 
+			- Size of RAM
+			- No of supported Data Disk (1 TB)
+			- Supported Disk type: Standard(HDD/SSD) or Premium (SSD) -Defines the IOPS
+			- Price 
+			- VM categories: 
+				- General purpose
+				- Compute Oprimized
+				- Memory optimized
+				- Storage Optimized
+				- GPU enabled
+		- High Availability/Redundancy
+			- Availability Set
+				- Fault Domain 
+				- Update domain
+			- Availability Zone
+			- Geo-Replication using ASR
+			- VMSS
+Azure Container Instances
+	- PaaS service for running single Docker Containers with out provisioning infrastructure.
+	- Serverless service for containers.
+	- Deploy applications in two ways
+		- Code
+			- AppService
+			- Virtual Machines
+		- Container 
+			- Azure Container Instances (Single container - Serverless)
+			- Azure Kubernetes Service (Multiple containers - Cluster)
+			- Azure Service Fabric (Multiple containers - Microservice cluster)
+			- AppService (Single container - Serverbased)
+	- Registries
+		- Storage location for Docker images
+		- Types:
+			- Public 
+				- DockerHub
+			- Private
+				- Azure Container Registry(ACR)
+					- az acr build --image  sonuacr.azurecr.io/demoapp:latest --registry sonuacr ./
+
+Logic Apps
+	- PaaS service, Serverless 
+	- Creating Workflows in Azure cloud.
+	- Workflow is started with a trigger
+	- Workflow contains multiple steps called action
+	- Trigger and actions may use other services (Azure or external) 
+	- To connect to other services Logic app uses connectors (200+ connectors available)
+	- No single line of code need to be written.
+	- User can use a Logic app designer interface to drag and drop actions and triggers.
+	- Code is written in the form of JSON templates.
+	- Triggers : What is the reason for starting workflow
+		- Http Request 
+		- Message received in Queue
+		- Timer trigger (a scheduled time reached)
+		- Blob trigger (blob file added in blob container)
+		- Mail received in gmail/outlook
+		- A new tweet is posted in Twitter
+		
+Azure Functions
+	- PaaS service, Serverless 
+	- It is also executed based on a trigger.
+	- Developer need to write the code in C#, Java, JavaScript, Python, PowerShell or Bash etc
+	- Azure Functions app is a collection of Azure Functions 
+	- A Function is a piece of code (similar to java/C# function)
+	- Functions perform a single atomic task
+	- Hosting models:
+		- Consumption model (Serverless)
+			- No need to allocate infrastructure (compute and storage)
+			- No of execution * Duration * memory consumed. 
+			- Better for infrequently execution
+			- 5 minutes is the max duration, configure up to 10 mts
+		- AppService model (Serverbased)
+			- Run function with in the App Service Plan (VM for AppService)
+			- No additional cost for function
+			- Fixed cost, better for continues executions
+			- No time limit for execution 
+	- A function can start with a trigger,
+		HttpTrigger
+		TimerTrigger
+		QueueTrigger
+		BlobTrigger
+	- We use bindings to read and write the data into external services		
+		- Trigger binding (a type of input binding)
+		- Input binding			
+		- Output binding
+	- How to develop
+		- In Azure Portal
+		- Locally using Functions SDK (Requires NodeJS to install the CLI)
+			- VS code
+			- Visual Studio 2019
+		
+API Management 
+	- Fully managed PaaS service for managing the APIs
+	- APIs can be RESTful services, Web Services deployed in AppServices, Functions, Logic Apps, Kubernetes, VMs or onpremise.
+	- Implement features like caching, throttling, authentication, formatting, response modification etc without updating the backend api code.
+	- Components of Azure API Gateway:
+		- Gateway
+		- Publisher Portal (Used by API publishers to configure the Gateway and API)
+		- Developer Portal (used by App developers to subscribe API/Product)
+	- Policies
+		- A set of rules that is configured in the Gateway to control the API
+		- Throttling
+		- Caching
+		- mocking
+		- transformation (xml to json, json to xml)
+		- Authentication
+		- response modification
+	- Product, API, Operation
+		- PRoduct is a group of APIs
+		- API is the collection of operation
+		- Operation 
+
+Azure Cache for Redis
+	- Redis is an open-source key-value pair database .
+	- very small, simple and not used for long-term persistent storage
+	- Redis is mostly used for caching purpose.
+	- An app that use on-premise redis database as a cache storage can be migrated to cloud without any code change.
+	- Just need to update the connectionstring
+Content Delivery Network
+	- 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
